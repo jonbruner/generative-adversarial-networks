@@ -20,7 +20,6 @@ track progress and see sample images in TensorBoard.
 """
 
 import tensorflow as tf
-import numpy as np
 import datetime
 
 # Load MNIST data
