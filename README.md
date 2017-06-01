@@ -8,7 +8,7 @@ There are three versions of our simple GAN model in this repository:
 - **[gan-script-fast.py](gan-script-fast.py)** is a modest refactoring of gan-script.py that runs slightly faster because more of its computations are contained in the TensorFlow graph.
 
 ## Requirements and installation
-In order to run [gan-script.py](gan-script.py) or [gan-script-fast.py](gan-script-fast.py), you'll need [TensorFlow](https://www.tensorflow.org/install/) **version 1.0 or later** and [NumPy](https://docs.scipy.org/doc/numpy/user/install.html). In order to run [gan-notebook.ipynb](gan-notebook.ipynb), you'll additionally need [Jupyter](https://jupyter.readthedocs.io/en/latest/install.html) and [matplotlib](https://matplotlib.org/).
+In order to run [gan-script.py](gan-script.py) or [gan-script-fast.py](gan-script-fast.py), you'll need **[TensorFlow](https://www.tensorflow.org/install/) version 1.0 or later** and [NumPy](https://docs.scipy.org/doc/numpy/user/install.html). In order to run [gan-notebook.ipynb](gan-notebook.ipynb), you'll additionally need [Jupyter](https://jupyter.readthedocs.io/en/latest/install.html) and [matplotlib](https://matplotlib.org/).
 
 If you've already got TensorFlow on your machine, then you've got NumPy and should be able to run the raw Python scripts.
 
