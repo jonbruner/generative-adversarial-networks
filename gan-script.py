@@ -23,9 +23,6 @@ mnist = input_data.read_data_sets("MNIST_data/")
 
 # Define the discriminator network
 def discriminator(images, reuse_variables=None):
-    #if (reuse):
-    #    tf.get_variable_scope().reuse_variables()
-
     with tf.variable_scope(tf.get_variable_scope(), reuse=reuse_variables) as scope:
         # First convolutional and pool layers
         # This finds 32 different 5 x 5 pixel features
@@ -98,8 +95,6 @@ def generator(z, batch_size, z_dim):
     # Dimensions of g4: batch_size x 28 x 28 x 1
     return g4
 
-print(tf.get_variable_scope().reuse)
-
 z_dimensions = 100
 batch_size = 50
 z_placeholder = tf.placeholder(tf.float32, [None, z_dimensions], name='z_placeholder')
@@ -129,16 +124,14 @@ d_vars = [var for var in tvars if 'd_' in var.name]
 g_vars = [var for var in tvars if 'g_' in var.name]
 
 # Define the optimizers
-with tf.variable_scope("optimizers") as scope:
-    print(scope)
-    print(scope.reuse)
-    # Train the discriminator
-    d_trainer_fake = tf.train.AdamOptimizer(0.0003).minimize(d_loss_fake, var_list=d_vars)
-    d_trainer_real = tf.train.AdamOptimizer(0.0003).minimize(d_loss_real, var_list=d_vars)
+# Train the discriminator
+d_trainer_fake = tf.train.AdamOptimizer(0.0003).minimize(d_loss_fake, var_list=d_vars)
+d_trainer_real = tf.train.AdamOptimizer(0.0003).minimize(d_loss_real, var_list=d_vars)
 
-    # Train the generator
-    g_trainer = tf.train.AdamOptimizer(0.0001).minimize(g_loss, var_list=g_vars)
+# Train the generator
+g_trainer = tf.train.AdamOptimizer(0.0001).minimize(g_loss, var_list=g_vars)
 
+# From this point forward, reuse variables
 tf.get_variable_scope().reuse_variables()
 
 sess = tf.Session()
