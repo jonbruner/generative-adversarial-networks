@@ -156,7 +156,7 @@ sess.run(tf.global_variables_initializer())
 # Pre-train discriminator
 for i in range(300):
     real_image_batch = mnist.train.next_batch(batch_size)[0].reshape([batch_size, 28, 28, 1])
-    _, __, dLossReal, dLossFake = sess.run([d_trainer_real, d_trainer_fake, d_loss_real, d_loss_fake],
+    _, __ = sess.run([d_trainer_real, d_trainer_fake],
                                            {x_placeholder: real_image_batch})
 
 # Train generator and discriminator together
@@ -164,7 +164,7 @@ for i in range(100000):
     real_image_batch = mnist.train.next_batch(batch_size)[0].reshape([batch_size, 28, 28, 1])
 
     # Train discriminator on both real and fake images
-    _, __, dLossReal, dLossFake = sess.run([d_trainer_real, d_trainer_fake, d_loss_real, d_loss_fake],
+    _, __ = sess.run([d_trainer_real, d_trainer_fake],
                                            {x_placeholder: real_image_batch})
 
     # Train generator
