@@ -174,6 +174,3 @@ for i in range(100000):
         # Update TensorBoard with summary statistics
         summary = sess.run(merged, {x_placeholder: real_image_batch})
         writer.add_summary(summary, i)
-
-        #TEMP
-        # print(sess.run([var for var in tf.global_variables() if var.op.name=="g_b3/beta"][0]))
