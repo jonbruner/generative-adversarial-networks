@@ -174,3 +174,7 @@ for i in range(100000):
         z_batch = np.random.normal(0, 1, size=[batch_size, z_dimensions])
         summary = sess.run(merged, {z_placeholder: z_batch, x_placeholder: real_image_batch})
         writer.add_summary(summary, i)
+
+# Optionally, uncomment the following lines to update the checkpoint files attached to the tutorial.
+# saver = tf.train.Saver()
+# saver.save(sess, 'pretrained-model/pretrained_gan.ckpt')

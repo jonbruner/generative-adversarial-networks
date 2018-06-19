@@ -174,3 +174,7 @@ for i in range(100000):
         # Update TensorBoard with summary statistics
         summary = sess.run(merged, {x_placeholder: real_image_batch})
         writer.add_summary(summary, i)
+
+# Optionally, uncomment the following lines to update the checkpoint files attached to the tutorial.
+# saver = tf.train.Saver()
+# saver.save(sess, 'pretrained-model/pretrained_gan.ckpt')
