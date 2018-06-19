@@ -1,0 +1,2 @@
+model_checkpoint_path: "pretrained_gan.ckpt"
+all_model_checkpoint_paths: "pretrained_gan.ckpt"
